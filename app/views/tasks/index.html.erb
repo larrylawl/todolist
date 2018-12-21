@@ -1,2 +1,12 @@
 <h1> Hello World! </h1>
-<%= render 'form' %>
+<%= form_with scope: :task, url: tasks_path,  local: true do |form| %>             
+  <p>
+    <%= form.label :todo %><br>
+    <%= form.text_area :todo %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
