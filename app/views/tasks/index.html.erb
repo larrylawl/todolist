@@ -1,3 +1,8 @@
 <h1> Hello World! </h1>
+<p> <% @tasks.each do |task| %>
+	<%= task.todo %> <br> 
+	<% end %>
+</p>
+
 <p> <%= render 'form' %> </p>
 
