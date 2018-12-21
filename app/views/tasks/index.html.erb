@@ -1,6 +1,8 @@
 <h1> Hello World! </h1>
 <p> <% @tasks.each do |task| %>
-	<%= task.todo %> <br> 
+	<%= task.todo %> 
+	<%= link_to("Delete", task_path(task), method: :delete) %>
+	<br> 
 	<% end %>
 </p>
 
