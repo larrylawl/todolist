@@ -2,6 +2,7 @@
 <p> <% @tasks.each do |task| %>
 	<%= task.todo %> 
 	<%= raw(task.tag_list.map{|t| link_to("#{t}", tag_path(t))}.join(", ")) %>
+	<%= link_to("Show", task_path(task)) %>
 	<%= link_to("Edit", edit_task_path(task)) %>
 	<%= link_to("Delete", task_path(task), method: :delete) %>
 	<br> 
