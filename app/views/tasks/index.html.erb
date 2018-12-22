@@ -1,16 +1,7 @@
 <h1> Hello World! </h1>
-<p> <% @tasks.each do |task| %>
-	<%= task.todo %> 
-	<%= raw(task.tag_list.map{|t| link_to("#{t}", tag_path(t))}.join(", ")) %>
-	<%= link_to("Show", task_path(task)) %>
-	<%= link_to("Edit", edit_task_path(task)) %>
-	<%= link_to("Delete", task_path(task), method: :delete) %>
-	<br> 
-	<% end %>
-</p>
-
-<div id = "new-article">
-	<p> <%= link_to("New Article", new_task_path, remote: true)%> 
-	</p>
+<div id = "list">
+	<%= render partial: 'task', collection: @tasks %>
 </div>
+
+<%= render 'form'%>
 

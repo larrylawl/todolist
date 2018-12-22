@@ -14,7 +14,10 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(tasks_params)
     if @task.save
-      redirect_to :action => "index"
+      respond_to do |format|
+        format.js
+        redirect_to :action => "index"
+      end
     else
       render "new"
     end
@@ -47,6 +50,6 @@ class TasksController < ApplicationController
 
   private
   	def tasks_params
-  	  params.require(:task).permit(:todo, :tag_list)
+  	  params.permit(:todo, :tag_list)
   	end
 end
