@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.7'
 
+gem 'bootstrap-sass'
+gem 'jquery-rails'
 # Acts-as-taggable-on github: "https://github.com/mbleigh/acts-as-taggable-on"
 gem 'acts-as-taggable-on', '~> 6.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
