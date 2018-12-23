@@ -14,9 +14,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(tasks_params)
     if @task.save
-      respond_to do |format|
-        format.js
-      end
+      respond_js
     else
       render "new"
     end
@@ -43,13 +41,17 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    respond_to do |format|
-      format.js
-    end
+    
   end
 
   private
   	def tasks_params
   	  params.permit(:todo, :tag_list)
   	end
+
+    def respond_js
+      respond_to do |format|
+        format.js
+      end
+    end
 end

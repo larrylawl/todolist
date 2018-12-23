@@ -1,1 +1,3 @@
-$("#todo, #tag_list").focus();
+$(document).on("turbolinks:load",function () {
+	$("#todo").focus();
+})
