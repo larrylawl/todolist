@@ -16,7 +16,6 @@ class TasksController < ApplicationController
     if @task.save
       respond_to do |format|
         format.js
-        redirect_to :action => "index"
       end
     else
       render "new"
@@ -44,8 +43,9 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-
-    redirect_to :action => "index"
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
