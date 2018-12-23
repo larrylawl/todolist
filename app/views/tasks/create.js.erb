@@ -1,3 +1,3 @@
-$("div#list").append("<%= j render @task %>");
+$("<%= j render @task %>").hide().appendTo("div#list").fadeIn(500);
 $("#todo, #tag_list").val('');
 $("#todo").focus();
