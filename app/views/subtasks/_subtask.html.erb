@@ -1,0 +1,7 @@
+<section id = <%= subtask.id %>>
+	<%= subtask.id %>
+	<%= subtask.todo %>
+	<%= link_to("Edit", [subtask.task, subtask], remote: true)%>
+	<%= link_to("Delete", [subtask.task, subtask], method: :delete, remote: true) %>
+	<br>
+</section>

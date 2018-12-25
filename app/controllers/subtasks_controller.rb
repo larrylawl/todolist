@@ -19,7 +19,7 @@ class SubtasksController < ApplicationController
 
   private
   	def subtasks_params
-  	  params.require(:subtask).permit(:todo, :tag_list)
+  	  params.require(:subtask).permit(:todo)
   	end
 
     def respond_js
