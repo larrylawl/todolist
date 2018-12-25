@@ -23,6 +23,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    respond_js
   end
 
   def edit

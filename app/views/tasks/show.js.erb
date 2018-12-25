@@ -1,0 +1,8 @@
+const task_id = <%= @task.id %>;
+$(`#${task_id}`).append("<%= j render 'subtasks/form' %>");
+$("#subtask_todo").focus();
+$(`form[action*=${task_id}]`).keypress(function(event) {
+		if(event.which == 13) {
+			$(this).trigger('submit.rails');
+		}
+});
