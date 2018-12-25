@@ -10,7 +10,6 @@ class SubtasksController < ApplicationController
   end
 
   def destroy
-    byebug
     @task = Task.find(params[:task_id])
     @subtask = @task.subtasks.find(params[:id])
     @subtask.destroy
