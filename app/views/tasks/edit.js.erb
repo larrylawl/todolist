@@ -1,1 +1,6 @@
 $("#"+"<%= @task.id %>").replaceWith("<%= j render 'form' %>");
+$("form").keypress(function(event) {
+		if(event.which == 13) {
+			$(this).trigger('submit.rails');
+		}
+});
