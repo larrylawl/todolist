@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   def index
+    @task = Task.new
     if params[:tag]
       @tasks = Task.tagged_with(params[:tag])
     else
@@ -31,9 +32,8 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-
     if @task.update(tasks_params)
-      redirect_to :action => "index"
+      respond_js
     else
       render "edit"
     end
@@ -47,7 +47,7 @@ class TasksController < ApplicationController
 
   private
   	def tasks_params
-  	  params.permit(:todo, :tag_list)
+  	  params.require(:task).permit(:todo, :tag_list)
   	end
 
     def respond_js

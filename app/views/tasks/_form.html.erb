@@ -1,10 +1,8 @@
 <%= form_with model: @task do |form| %>       
-  <% if false %>
   <% if @task.errors.any? %>
   	<div id="error_explanation">
   		<p> <%= @task.errors.full_messages %> </p>
   	</div>
-  <% end %>
   <% end %>
 
   <p>
