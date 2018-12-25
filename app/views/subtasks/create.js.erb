@@ -1,1 +1,2 @@
-$("<%= j render @subtask %>").hide().appendTo("div#list").fadeIn(500);
+const task_id = <%= @task.id %>;
+$(`#${task_id}`).append("<%= j render @subtask %>");

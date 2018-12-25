@@ -1,12 +1,20 @@
 class SubtasksController < ApplicationController
 	def create
-    byebug
-    @subtask = Subtask.new(subtasks_params)
+    @task = Task.find(params[:task_id])
+    @subtask = @task.subtasks.create(subtasks_params)
     if @subtask.save
       respond_js
     else
       render "new"
     end
+  end
+
+  def destroy
+    byebug
+    @task = Task.find(params[:task_id])
+    @subtask = @task.subtasks.find(params[:id])
+    @subtask.destroy
+    respond_js
   end
 
   private
