@@ -1,5 +1,13 @@
 const task_id = <%= @task.id %>;
+
+// Builds form
 $(`#${task_id}`).append("<%= j render 'subtasks/form' %>");
+
+// Toggle form
+$(`a[href=/tasks/${task_id}`).click(function() {
+  $(`form[action*=${task_id}]`).hide();
+})
+
 $("#subtask_todo").focus();
 $(`form[action*=${task_id}]`).keypress(function(event) {
 		if(event.which == 13) {
