@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_12_25_063402) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "subtasks", force: :cascade do |t|
     t.string "todo"
     t.integer "task_id"
