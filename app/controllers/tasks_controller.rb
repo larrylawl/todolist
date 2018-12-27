@@ -4,7 +4,7 @@ class TasksController < ApplicationController
     if params[:tag]
       @tasks = Task.tagged_with(params[:tag])
     else
-      @tasks = Task.all
+      @tasks = Task.all.order(:id)
     end
   end
 
@@ -23,6 +23,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    respond_js
   end
 
   def edit

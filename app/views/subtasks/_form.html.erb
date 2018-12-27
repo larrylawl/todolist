@@ -1,0 +1,6 @@
+<%= form_with model: [@task, @task.subtasks.build] do |form| %>       
+  <p>
+    <%= form.label :todo %><br>
+    <%= form.text_area :todo %> <br>
+  </p>
+<% end %>

@@ -1,8 +1,7 @@
 <section id = <%= subtask.id %>>
 	<%= subtask.id %>
 	<%= subtask.todo %>
-	<%= raw(subtask.tag_list.map{|t| link_to("#{t}", tag_path(t))}.join(", ")) %>
-	<%= link_to("Edit", edit_task_path(subtask), remote: true)%>
-	<%= link_to("Delete", task_path(subtask), method: :delete, remote: true) %>
+	<%= link_to("Edit", [subtask.task, subtask], remote: true)%>
+	<%= link_to("Delete", [subtask.task, subtask], method: :delete, remote: true) %>
 	<br>
 </section>
