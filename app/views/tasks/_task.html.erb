@@ -1,3 +1,4 @@
+<% @task = task%>
 <section id=<%= task.id %>>
 	<%= task.id %>
 	<%= task.todo %>
@@ -8,5 +9,6 @@
 	<br>
 	<section id="subtasks"> 
 		<%= render partial: 'subtasks/subtask', collection: task.subtasks %>
+		<%= render 'subtasks/form' %>
 	</section>
 </section>
