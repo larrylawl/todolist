@@ -22,6 +22,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    byebug
     @task = Task.find(params[:id])
     respond_js
   end
