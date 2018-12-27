@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(tasks_params)
+    @task = Task.create(tasks_params)
     if @task.save
       respond_js
     else
@@ -23,6 +23,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @subtasks = @task.subtasks
     respond_js
   end
 
