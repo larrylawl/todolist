@@ -1,7 +1,15 @@
 <h1> Hello World! </h1>
 
 <section id="tasks">
-	<%= render partial: 'task', collection: @tasks%>
+	<% @tasks.each do |task| %>
+		<%= render partial: 'task', locals: {task: task} %>
+		<section id="subtasks">
+			<%= render partial: 'subtasks/subtask', collection: task.subtasks %>
+		</section>
+		<section id="subtask_form">
+			<%= render partial:'subtasks/form', locals: {task: task} %>
+		</section>
+	<% end %>
 </section>
 
 <section id="task_form">

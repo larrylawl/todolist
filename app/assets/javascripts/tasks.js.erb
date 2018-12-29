@@ -28,11 +28,9 @@ function submit_enter(selector) {
 	});
 }
 
-
-
 $(document).on("turbolinks:load",function () {
 	// Subtasks
-	$("section#subtasks").hide();
+	$("#subtasks, #subtask_form").hide();
 	reset_form("#task_form");
 })
 
