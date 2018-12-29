@@ -1,10 +1,10 @@
 <h1> Hello World! </h1>
 
 <section id="tasks">
-	<%= render partial: 'task', collection: @tasks %>
+	<%= render partial: 'task', collection: @tasks%>
 </section>
 
 <section id="task_form">
-	<%= render 'form'%>
+	<%= render partial: 'form', locals: {task: @task}%>
 </section>
 

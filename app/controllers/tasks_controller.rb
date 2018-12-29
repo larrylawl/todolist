@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @new_task = Task.new
+    @task = Task.new
     if params[:tag]
       @tasks = Task.tagged_with(params[:tag])
     else
