@@ -1,4 +1,5 @@
-<%= form_with model: [@task, @task.subtasks.build] do |form| %>       
+<% @subtask=@task.subtasks.build %>
+<%= form_with scope: :subtask, url: task_subtasks_path(@task) do |form| %>       
   <p>
     <%= form.label :todo %><br>
     <%= form.text_area :todo %> <br>

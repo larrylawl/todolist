@@ -1,7 +1,6 @@
 const task_id = <%= @task.id %>;
 
-// Builds form
-$(`#${task_id}`).append("<%= j render 'subtasks/form' %>");
+$(`#${task_id} #subtasks`).fadeToggle();
 
 $("#subtask_todo").focus();
 $(`form[action*=${task_id}]`).keypress(function(event) {
