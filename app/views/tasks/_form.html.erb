@@ -1,10 +1,8 @@
-<%= form_with model: @task do |form| %>       
-  <section class="form_content">
+<%= form_with model: @new_task do |form| %>       
     <p>
       <%= form.label :todo %><br>
       <%= form.text_area :todo %> <br>
       <%= form.label :tag_list %><br>
       <%= form.text_area :tag_list %>
     </p>
-  </section>
 <% end %>

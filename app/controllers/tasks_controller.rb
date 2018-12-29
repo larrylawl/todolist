@@ -1,15 +1,11 @@
 class TasksController < ApplicationController
   def index
-    @task = Task.new
+    @new_task = Task.new
     if params[:tag]
       @tasks = Task.tagged_with(params[:tag])
     else
       @tasks = Task.all.order(:id)
     end
-  end
-
-  def new
-    @task = Task.new
   end
 
   def create

@@ -1,6 +1,8 @@
 <h1> Hello World! </h1>
 
-<%= render partial: 'task', collection: @tasks %>
+<section id="tasks">
+	<%= render partial: 'task', collection: @tasks %>
+</section>
 
 <section id="task_form">
 	<%= render 'form'%>
