@@ -5,33 +5,41 @@ Resets tag if there's a value
 Abstracted out from 4 javascript files!
 */
 function reset_form(selector) {
-	const todo = `${selector} [name*=todo]`
+	const title = `${selector} [name*=title]`
 	const tag = `${selector} [name*=tag_list]`
-	$(todo).val("");
-	$(todo).focus();
-	submit_enter(todo);
-	if (element_exist(tag)){
-		$(tag).val("");
-		submit_enter(tag);
-	} else {};
+	const details = `${selector} [name*=details]`
+	const selectors = [title, tag, details];
+	
+	$(title).focus();
+	reset_value(selectors);
+	submit_on_enter(selectors);
+}
+
+// Array of strings --> Undefined
+function reset_value(selectors) {
+	for (let i = 0; i < selectors.length; i++){
+		$(selectors[i]).val("");
+	}
+}
+
+// Array of strings --> Undefined
+function submit_on_enter(selectors) {
+	for (let i = 0; i < selectors.length; i++){
+			$(selectors[i]).keypress(function(event) {
+				if(event.which == 13) {
+					$(this).trigger('submit.rails');
+				}
+			});
+		}
 }
 
 function element_exist(selector) {
 	return $(`${selector}`.length > 0)
 }
 
-function submit_enter(selector) {
-	$(selector).keypress(function(event) {
-		if(event.which == 13) {
-			$(this).trigger('submit.rails');
-		}
-	});
-}
 
 $(document).on("turbolinks:load",function () {
-	// Subtasks
-	$("#subtasks, #subtask_form").hide();
-	reset_form("#task_form");
+	reset_form("#index_form");
 })
 
 

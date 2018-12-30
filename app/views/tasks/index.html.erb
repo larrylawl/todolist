@@ -1,18 +1,9 @@
 <h1> Hello World! </h1>
 
 <section id="tasks">
-	<% @tasks.each do |task| %>
-		<%= render partial: 'task', locals: {task: task} %>
-		<section id="subtasks">
-			<%= render partial: 'subtasks/subtask', collection: task.subtasks %>
-		</section>
-		<section id="subtask_form">
-			<%= render partial:'subtasks/form', locals: {task: task} %>
-		</section>
-	<% end %>
+	<%= render @tasks %>
 </section>
 
-<section id="task_form">
-	<%= render partial: 'form', locals: {task: @task}%>
+<section id="index_form">
+	<%= render partial: 'index_form', locals: {task: @task}%>
 </section>
-
