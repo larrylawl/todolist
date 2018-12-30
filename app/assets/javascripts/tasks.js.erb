@@ -12,7 +12,6 @@ function reset_form(selector) {
 	
 	$(title).focus();
 	reset_value(selectors);
-	submit_on_enter(selectors);
 }
 
 // Array of strings --> Undefined
@@ -23,7 +22,12 @@ function reset_value(selectors) {
 }
 
 // Array of strings --> Undefined
-function submit_on_enter(selectors) {
+function submit_on_enter(selector) {
+	const title = `${selector} [name*=title]`
+	const tag = `${selector} [name*=tag_list]`
+	const details = `${selector} [name*=details]`
+	const selectors = [title, tag, details];
+
 	for (let i = 0; i < selectors.length; i++){
 			$(selectors[i]).keypress(function(event) {
 				if(event.which == 13) {
@@ -40,6 +44,7 @@ function element_exist(selector) {
 
 $(document).on("turbolinks:load",function () {
 	reset_form("#index_form");
+	submit_on_enter("#index_form");
 })
 
 
