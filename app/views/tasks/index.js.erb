@@ -1,5 +1,4 @@
-alert();
-<% @tasks.each do |task| %> 
-	const task_id = <%= task.id %>;
-	$(`#${task_id}`).hide();
-<% end %>
+for (let i = 0; i < gon.global.untagged.length; i++) {
+	const untagged_task = gon.global.untagged[i];
+	$(`#${untagged_task.id}`).fadeToggle();
+}
