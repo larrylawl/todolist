@@ -1,3 +1,4 @@
 <% @untagged.each do |task| %> 
-	$(`#${<%= task.id %>}`).fadeToggle();
+	var task_id = <%= task.id %>;
+	$(`#${task_id}`).fadeToggle();
 <% end %>
