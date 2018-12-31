@@ -1,5 +1,3 @@
-alert();
-<% @tasks.each do |task| %> 
-	const task_id = <%= task.id %>;
-	$(`#${task_id}`).hide();
+<% @untagged.each do |task| %> 
+	$(`#${<%= task.id %>}`).fadeToggle();
 <% end %>

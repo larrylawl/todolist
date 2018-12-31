@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
-gem 'gon'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 # Acts-as-taggable-on github: "https://github.com/mbleigh/acts-as-taggable-on"
