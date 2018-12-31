@@ -1,5 +1,12 @@
+// Edits task
 const task_id = <%= @task.id %>;
 const form_selector = `form[action*= ${task_id}]`;
 $(`#${task_id}`).replaceWith("<%= j render partial: 'form', locals: {task: @task} %>");
 $(get_title_selector(form_selector)).focus();
 submit_on_enter(form_selector);
+
+// Subtask
+$(`#main_form`).append(`<%= j render partial: 'subtasks/subtask', collection: @task.subtasks %>`);
+$(`#main_form`).append(`<%= j render partial: 'subtasks/form', locals: {task: @task}%>`);
+submit_on_enter(`#subtask_form`);
+ 

@@ -1,5 +1,5 @@
 class SubtasksController < ApplicationController
-	def create
+  def create
     @task = Task.find(params[:task_id])
     @subtask = @task.subtasks.create(subtasks_params)
     if @subtask.save
@@ -18,7 +18,7 @@ class SubtasksController < ApplicationController
 
   private
   	def subtasks_params
-  	  params.require(:subtask).permit(:todo)
+  	  params.require(:subtask).permit(:title)
   	end
 
     def respond_js

@@ -1,7 +1,9 @@
-<% subtask=task.subtasks.build %>
-<%= form_with scope: :subtask, url: task_subtasks_path(task) do |form| %>       
-  	<p>
-	    <%= form.label :todo %><br>
-	    <%= form.text_area :todo %> <br>
-  	</p>
-<% end %>
+<section id="subtask_form">
+	<% subtask=task.subtasks.build %>
+	<%= form_with scope: :subtask, url: task_subtasks_path(task) do |form| %>       
+	  	<p>
+		    <%= form.label :title %><br>
+		    <%= form.text_area :title %> <br>
+	  	</p>
+	<% end %>
+</section>

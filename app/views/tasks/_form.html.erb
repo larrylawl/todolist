@@ -1,7 +1,9 @@
-<%= form_with model: task do |form| %>       
-    <p>
-      <%= form.text_area :title %> <br>
-      <%= form.text_area :tag_list %> <br>
-      <%= form.text_area :details %>
-    </p>
-<% end %>
+<section id="main_form">
+	<%= form_with model: task do |form| %>       
+	    <p>
+	      <%= form.text_area :title %> <br>
+	      <%= form.text_area :tag_list %> <br>
+	      <%= form.text_area :details %>
+	    </p>
+	<% end %>
+</section>
