@@ -1,4 +1,3 @@
-for (let i = 0; i < gon.global.untagged.length; i++) {
-	const untagged_task = gon.global.untagged[i];
-	$(`#${untagged_task.id}`).fadeToggle();
-}
+<% @untagged.each do |task| %> 
+	$(`#${<%= task.id %>}`).fadeToggle();
+<% end %>
