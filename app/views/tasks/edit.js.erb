@@ -1,1 +1,5 @@
-$("#"+"<%= @task.id %>").replaceWith("<%= j render 'form' %>");
+const task_id = <%= @task.id %>;
+const form_selector = `form[action*= ${task_id}]`;
+$(`#${task_id}`).replaceWith("<%= j render partial: 'form', locals: {task: @task} %>");
+$(get_title_selector(form_selector)).focus();
+submit_on_enter(form_selector);

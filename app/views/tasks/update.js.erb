@@ -1,1 +1,2 @@
-$("form[action*=<%= @task.id %>]").replaceWith("<%= j render @task %>");
+const task_id = <%= @task.id %>;
+$(`form[action*=${task_id}]`).replaceWith("<%= j render partial:'task', locals: {task: @task}%>");

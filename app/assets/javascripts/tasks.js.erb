@@ -4,16 +4,16 @@ submit upon hitting enter key
 Resets tag if there's a value
 Abstracted out from 4 javascript files!
 */
+
+// String --> Undefined
 function reset_form(selector) {
-	const title = `${selector} [name*=title]`
-	const tag = `${selector} [name*=tag_list]`
-	const details = `${selector} [name*=details]`
-	const selectors = [title, tag, details];
-	
+	const attributes = attribute_selectors(selector);
+	const title = get_title_selector(selector);
 	$(title).focus();
-	reset_value(selectors);
+	reset_value(attributes);
 }
 
+// String --> Undefined
 // Array of strings --> Undefined
 function reset_value(selectors) {
 	for (let i = 0; i < selectors.length; i++){
@@ -21,15 +21,12 @@ function reset_value(selectors) {
 	}
 }
 
-// Array of strings --> Undefined
+// String --> Undefined
+// Submits the form upon "enter" key on any of it's fields
 function submit_on_enter(selector) {
-	const title = `${selector} [name*=title]`
-	const tag = `${selector} [name*=tag_list]`
-	const details = `${selector} [name*=details]`
-	const selectors = [title, tag, details];
-
-	for (let i = 0; i < selectors.length; i++){
-			$(selectors[i]).keypress(function(event) {
+	const attributes = attribute_selectors(selector);
+	for (let i = 0; i < attributes.length; i++){
+			$(attributes[i]).keypress(function(event) {
 				if(event.which == 13) {
 					$(this).trigger('submit.rails');
 				}
@@ -37,10 +34,30 @@ function submit_on_enter(selector) {
 		}
 }
 
-function element_exist(selector) {
-	return $(`${selector}`.length > 0)
+// String --> Array
+// Returns array of attribute selectors in the order of title, tag, and details
+function attribute_selectors(selector) {
+	const title = get_title_selector(selector);
+	const tag = get_tag_selector(selector);
+	const details = get_details_selector(selector);
+	return [title, tag, details];
 }
 
+function element_exist(selector) {
+	return $(`${selector}`.length > 0);
+}
+
+function get_title_selector(selector) {
+	return `${selector} [name*=title]`;
+}
+
+function get_tag_selector(selector) {
+	return `${selector} [name*=tag_list]`;
+}
+
+function get_details_selector(selector) {
+	return `${selector} [name*=details]`;
+}
 
 $(document).on("turbolinks:load",function () {
 	reset_form("#index_form");

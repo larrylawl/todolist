@@ -45,7 +45,7 @@ class TasksController < ApplicationController
 
   private
   	def tasks_params
-  	  params.require(:task).permit(:title, :tag_list)
+  	  params.require(:task).permit(:title, :tag_list, :details)
   	end
 
     def respond_js
