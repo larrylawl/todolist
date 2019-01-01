@@ -1,2 +1,4 @@
-$(`<%= j render @task %>`).hide().appendTo("#tasks").fadeIn(500);
+const task_id = <%= @task.id %>;
+$(`#tasks`).append("<%= j render @task %>");
+$(`#${task_id}`).hide().fadeIn(500);
 reset_form("#index_form");
