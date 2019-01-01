@@ -7,7 +7,9 @@
 	- Edit -> Show (not hidden)
 	- Edit -> Tagging
 	- Edit -> Delete
-	- Multiple edits (?)
-	- With edit menu on (?)
+	- Multiple diff edits
+		- Treat it as a form, everything else works normally
+		- Indiv jqueries wont affect the opened form
+		- Dependent jqueries (tag) ignores it
 4. Delete
 5. Tagging
