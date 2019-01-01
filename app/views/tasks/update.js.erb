@@ -1,2 +1,3 @@
 const task_id = <%= @task.id %>;
 $(`form[action*=${task_id}]`).replaceWith("<%= j render partial:'task', locals: {task: @task}%>");
+$(`#${task_id} .details`).hide();
