@@ -60,7 +60,7 @@ function get_details_selector(selector) {
 }
 
 $(document).on("turbolinks:load",function () {
-	$(`#details`).hide();
+	$(`.details`).hide();
 	reset_form("#index_form");
 	submit_on_enter("#index_form");
 })
