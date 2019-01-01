@@ -2,8 +2,12 @@
 	<%= task.id %>
 	<%= task.title %>
 	<%= raw(task.tag_list.map{|t| link_to("#{t}", tag_path(t), remote: true)}.join(", ")) %> 
+	<%= link_to("Show", task_path(task), remote: true)%>
 	<%= link_to("Edit", edit_task_path(task), remote: true)%>
 	<%= link_to("Delete", task_path(task), method: :delete, remote: true) %> <br>
-	<%= task.details %>
-	<br>
+	<section id= "details">
+		<% if task.details.class != nil %>
+			<%= task.details %>
+		<% end %>
+	</section>
 </section>

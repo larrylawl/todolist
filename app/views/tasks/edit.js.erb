@@ -8,5 +8,4 @@ submit_on_enter(form_selector);
 // Subtask
 $(`#main_form`).append(`<%= j render partial: 'subtasks/subtask', collection: @task.subtasks %>`);
 $(`#main_form`).append(`<%= j render partial: 'subtasks/form', locals: {task: @task}%>`);
-submit_on_enter(`#subtask_form`);
  
