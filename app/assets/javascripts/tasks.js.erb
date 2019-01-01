@@ -43,6 +43,12 @@ function attribute_selectors(selector) {
 	return [title, tag, details];
 }
 
+function submit_on_click(selector) {
+	$(`${selector}`).click(function(){
+		alert();
+	})
+}
+
 function element_exist(selector) {
 	return $(`${selector}`.length > 0);
 }
@@ -63,6 +69,7 @@ $(document).on("turbolinks:load",function () {
 	$(`.details`).hide();
 	reset_form("#title_form");
 	submit_on_enter("#title_form");
+	// submit_on_click(".checkbox");
 })
 
 

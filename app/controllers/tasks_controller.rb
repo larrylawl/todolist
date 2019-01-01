@@ -45,7 +45,6 @@ class TasksController < ApplicationController
   end
 
   def completed
-    byebug
     @task = Task.find(params[:id])
     if @task.update(tasks_params_complete)
       respond_js
