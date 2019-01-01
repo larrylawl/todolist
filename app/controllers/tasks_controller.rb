@@ -44,10 +44,24 @@ class TasksController < ApplicationController
     respond_js
   end
 
+  def completed
+    byebug
+    @task = Task.find(params[:id])
+    if @task.update(tasks_params_complete)
+      respond_js
+    else
+      render "index"
+    end
+  end
+
   private
   	def tasks_params
   	  params.require(:task).permit(:title, :tag_list, :details)
   	end
+
+    def tasks_params_complete
+      params.require(:task).permit(:completed)
+    end
 
     def respond_js
       respond_to do |format|
