@@ -46,7 +46,11 @@ class TasksController < ApplicationController
 
   def completed
     @task = Task.find(params[:id])
-    @task.update(tasks_params_complete)
+    if @task.update(tasks_params_complete)
+      respond_js
+    else
+      render "index"
+    end
   end
 
   private
