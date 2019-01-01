@@ -6,5 +6,6 @@ class Task < ApplicationRecord
 
   def init
   	self.completed ||= 0
+  	self.details ||= ""
   end
 end

@@ -1,4 +1,4 @@
 const task_id = <%= @task.id %>;
-$(`#tasks`).append("<%= j render @task %>");
+$(`#tasks`).append("<%= j render partial: 'task', locals: {task: @task} %>");
 $(`#${task_id}`).hide().fadeIn(500);
 reset_form("#title_form");

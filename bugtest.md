@@ -1,7 +1,7 @@
 # BugTest
 1. Create
 2. Show
-	- Only show details
+	- Only show when there're details
 3. Edit
 	- Edit (3 elements) 
 	- Edit -> Show (not hidden)
