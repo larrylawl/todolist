@@ -1,22 +1,11 @@
 <% status = get_status(task) %>
 <section id=<%=task.id%> class=<%=status%>>
-
-	<section class="checkboxes">
-		<%= render partial: 'checkbox', locals: {task: task} %>
-	</section>
-
-	<section class="links">
-	<%= task.id %>
-	<%= task.title %>
-	<%= raw(task.tag_list.map{|t| link_to("#{t}", tag_path(t), remote: true)}.join(", ")) %>
-	<% if task.details != "" %>
-		<%= link_to("Show", task_path(task), remote: true)%>
-	<% end %> 
-	<%= link_to("Edit", edit_task_path(task), remote: true)%>
-	<%= link_to("Delete", task_path(task), method: :delete, remote: true) %> <br>
-	</section>
+	<%= form_with scope: task, url: completed_task_path(task), method: :patch do |form|%>
+		<%= form.check_box :completed %>
+		<%= render partial: 'label', locals: {task: task} %>
 	<section class= "details">
 		<%= task.details %>
 	</section>
+		<% end %>
 </section>
 
