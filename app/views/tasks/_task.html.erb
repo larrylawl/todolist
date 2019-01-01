@@ -1,9 +1,8 @@
 <section id=<%= task.id%>>
-	<section class="checkbox">
-		<%= form_with model: task do |form|%>
-			<%= form.check_box :completed %>
-		<% end %>
-	</section>
+	<%= form_with scope: task, url: completed_task_path(task) do |form|%>
+		<%= form.check_box :completed %>
+	<% end %>
+
 	<%= task.id %>
 	<%= task.title %>
 	<%= raw(task.tag_list.map{|t| link_to("#{t}", tag_path(t), remote: true)}.join(", ")) %>

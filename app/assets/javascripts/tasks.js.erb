@@ -45,7 +45,7 @@ function attribute_selectors(selector) {
 
 function submit_on_click(selector) {
 	$(`${selector}`).click(function(){
-		alert();
+		$(this).parent().trigger('submit.rails');
 	})
 }
 
@@ -69,7 +69,7 @@ $(document).on("turbolinks:load",function () {
 	$(`.details`).hide();
 	reset_form("#title_form");
 	submit_on_enter("#title_form");
-	// submit_on_click(".checkbox");
+	submit_on_click("input[type=checkbox]");
 })
 
 
