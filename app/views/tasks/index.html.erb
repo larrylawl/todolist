@@ -1,13 +1,18 @@
-<h1> Hello World! </h1>
+<header class="jumbotron container-fluid">
+  <h1> To Do or Not To Do? </h1>
+</header>
 
-<section id="tasks">
-	<%= render @tasks %>
-</section>
+<main class="container-fluid">
+  <div class="row">
+    <section id="tasks" class="col">
+      <%= render @tasks %>
+    </section>
 
-<!-- Form -->
-<%= render partial: 'form', locals: {task: @task}%>
-
-
-<section id="delete">
-<%= link_to("Delete Completed", destroy_all_tasks_path, remote: true, method: :delete)%>
-</section>
+    <section id="features" class="col">
+      <%= render partial: 'form', locals: {task: @task}%>
+      <section id="delete">
+        <%= link_to("Delete Completed", destroy_all_tasks_path, remote: true, method: :delete)%>
+      </section>
+    </section>
+  </div>
+</main>

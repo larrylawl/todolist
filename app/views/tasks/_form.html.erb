@@ -1,9 +1,9 @@
 <section id="form">
 	<%= form_with model: task do |form| %>       
 	    <p>
-	      <%= form.text_area :title %> <br>
-	      <%= form.text_area :tag_list %> <br>
-	      <%= form.text_area :details %>
+	      <%= form.text_area :title, placeholder: "Title" %> <br>
+	      <%= form.text_area :tag_list, placeholder: "Tag" %> <br>
+	      <%= form.text_area :details, placeholder: "Details" %>
 	    </p>
 	<% end %>
 </section>
