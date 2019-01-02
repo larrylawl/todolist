@@ -2,6 +2,7 @@
 1. Show
 	- Link only pops out when there are details
 2. Destroy all
+	- Only shows when not in edit mode
 3. Tagging
 4. Edit
 	- Edit on three boxes 
