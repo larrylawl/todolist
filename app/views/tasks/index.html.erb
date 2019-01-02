@@ -4,9 +4,9 @@
 	<%= render @tasks %>
 </section>
 
-<section id="title_form">
-	<%= render partial: 'title_form', locals: {task: @task}%>
-</section>
+<!-- Form -->
+<%= render partial: 'form', locals: {task: @task}%>
+
 
 <section id="delete">
 <%= link_to("Delete Completed", destroy_all_tasks_path, remote: true, method: :delete)%>
