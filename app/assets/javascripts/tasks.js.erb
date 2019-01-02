@@ -22,16 +22,19 @@ function reset_value(selectors) {
 }
 
 // String --> Undefined
-// Submits the form upon "enter" key on any of it's fields
 function submit_on_enter(selector) {
+	$(selector).keypress(function(event) {
+		if(event.which == 13) {
+			$(this).trigger('submit.rails');
+		}
+	});
+}
+
+function submit_on_enter_form(selector) {
 	const attributes = attribute_selectors(selector);
 	for (let i = 0; i < attributes.length; i++){
-			$(attributes[i]).keypress(function(event) {
-				if(event.which == 13) {
-					$(this).trigger('submit.rails');
-				}
-			});
-		}
+		submit_on_enter(attributes[i]);
+	}
 }
 
 // String --> Array
@@ -68,7 +71,7 @@ function get_details_selector(selector) {
 $(document).on("turbolinks:load",function () {
 	$(`.details`).hide();
 	reset_form("#title_form");
-	submit_on_enter("#title_form");
+	submit_on_enter_form("#title_form");
 	submit_on_click("input[type=checkbox]");
 })
 
