@@ -3,15 +3,16 @@
 	<!-- checkbox -->
 		<%= form_with scope: task, url: completed_task_path(task), method: :patch do |form|%>
 			<%= form.check_box :completed%>
+			<%= task.title %>
 
 	<!-- Labels -->
-		<label class= "form-check-label">
-			<%= render partial: 'label', locals: {task: task} %>
-		</label>
+			<section class="actions">
+				<%= render partial: 'actions', locals: {task: task} %>
+			</section>
 	<!-- Details -->
-		<section class= "details">
-			<%= task.details %>
-		</section>
+			<section class= "details">
+				<%= task.details %>
+			</section>
 		<% end %>
 </section>
 

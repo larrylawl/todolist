@@ -1,4 +1,3 @@
-<%= task.title %>
 <%= raw(task.tag_list.map{|t| link_to("#{t}", tag_path(t), remote: true)}.join(", ")) %>
 <% if task.details != "" %>
 	<%= link_to("Show", task_path(task), remote: true)%>
