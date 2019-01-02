@@ -1,11 +1,12 @@
 <% status = get_status(task) %>
 <section id=<%=task.id%> class=<%=status%>>
-	<%= form_with scope: task, url: completed_task_path(task), method: :patch do |form|%>
-		<%= form.check_box :completed %>
-		<%= render partial: 'label', locals: {task: task} %>
-	<section class= "details">
-		<%= task.details %>
-	</section>
-	<% end %>
+	<!-- checkbox -->
+		<%= form_with scope: task, url: completed_task_path(task), method: :patch do |form|%>
+			<%= form.check_box :completed%>
+			<%= render partial: 'label', locals: {task: task} %>
+		<section class= "details">
+			<%= task.details %>
+		</section>
+		<% end %>
 </section>
 

@@ -4,11 +4,11 @@
 
 <main class="container-fluid">
   <div class="row">
-    <section id="tasks" class="col">
+    <section id="tasks" class="col-7">
       <%= render @tasks %>
     </section>
 
-    <section id="features" class="col">
+    <section id="features" class="col-5">
       <%= render partial: 'form', locals: {task: @task}%>
       <section id="delete">
         <%= link_to("Delete Completed", destroy_all_tasks_path, remote: true, method: :delete)%>
