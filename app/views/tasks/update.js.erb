@@ -1,3 +1,11 @@
+edit_counter--;
+
 const task_id = <%= @task.id %>;
 $(`form[action*=${task_id}]`).replaceWith("<%= j render partial:'task', locals: {task: @task}%>");
 $(`#${task_id} .details`).hide();
+submit_on_click(`#${task_id} input[type=checkbox]`);
+
+const form_pax = $(`.main_form`).length;
+if (edit_counter === 0) { 
+	$(`#delete`).fadeIn(350);
+}
