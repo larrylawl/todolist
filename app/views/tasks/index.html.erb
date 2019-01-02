@@ -7,3 +7,5 @@
 <section id="title_form">
 	<%= render partial: 'title_form', locals: {task: @task}%>
 </section>
+
+<%= link_to("Delete Completed", destroy_all_tasks_path, remote: true, method: :delete)%>

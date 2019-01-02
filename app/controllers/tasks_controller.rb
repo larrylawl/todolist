@@ -44,6 +44,14 @@ class TasksController < ApplicationController
     respond_js
   end
 
+  def destroy_all
+    @tasks = Task.where(completed: 1)
+    @tasks.each do |task|
+      task.destroy
+    end
+    respond_js
+  end
+
   def completed
     @task = Task.find(params[:id])
     if @task.update(tasks_params_complete)

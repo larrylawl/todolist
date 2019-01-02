@@ -1,0 +1,4 @@
+<% @tasks.each do |task| %>
+	var task_id = <%= task.id %>;
+	$(`#${task_id}`).fadeOut(300);
+<% end %>
