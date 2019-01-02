@@ -4,6 +4,7 @@
 2. Destroy all
 	- Only shows when not in edit mode
 3. Tagging
+	- Multiple tags
 4. Edit
 	- Edit on three boxes 
 	- Edit -> Show (not hidden)
