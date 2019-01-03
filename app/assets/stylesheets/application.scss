@@ -15,17 +15,11 @@
  */
 @import "bootstrap";
 
-.jumbotron {
-	margin-bottom: 0rem;
-	padding-left: 4rem;
-}
-
 .LHS {
 	background-color: #404040;
-	height: 40rem;
 	padding-top: 2rem;
-	padding-left: 4rem;
 	line-height: 200%;
+	height: 40rem;
 	color: white;
 }
 
@@ -50,18 +44,31 @@ a, a:hover {
 }
 
 .checked {
+	color: #606060;
 	text-decoration: line-through;
-	color: #D3D3D3;
 }
 
 textarea.form-details {
 	height: 200px
 }
 
-@media (min-width: 768px) {
+@media (min-width: 0px) {
+	.jumbotron {
+		margin-bottom: 0rem;
+	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
+	.jumbotron {
+		margin-bottom: 0rem;
+		padding-left: 6rem;
+	}
+
+	.LHS {
+		padding-left: 6rem;
+		padding-right: 6rem;
+	}
+
 	.form-control {
 		width: 50%;
 	}
