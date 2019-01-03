@@ -25,14 +25,36 @@ header {
 	margin-bottom: 5%;
 }
 
+footer {
+	color: #990000;
+	margin-top: 5%;
+	font-weight: 100;
+	font-size: 1.5rem;
+}
+
 #tasks {
 	font-size: 1.5rem;
 	line-height: 2;
 }
 
-.actions {
-	float: right;
+.button{
+	font-weight: 250;
 	color: #606060;
+	float: right;
+	filter: brightness(90%);
+}
+
+.button:hover{
+	background-color: #E0E0E0;
+	border-radius: 5px;
+	filter: brightness(100%);
+	transition: 0.5s;
+}
+
+.details {
+	font-weight: 200;
+	font-size: 1rem;
+	color: #808080;
 }
 
 .btn-outline-secondary{

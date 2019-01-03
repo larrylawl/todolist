@@ -1,23 +1,32 @@
-<main class="container-fluid">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-5">
+<body>
+  <main class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-5">
+        <header>
+          <h1> <span style="color:#CC0000">To Do </span> or Not To Do? <%= image_tag("charmender.gif") %> </h1>
+        </header>
 
-      <header>
-        <h1> <span style="color:#CC0000">To Do </span> or Not To Do? </h1>
-      </header>
+        <section id="tasks">
+          <%= render @tasks %>
+        </section>
 
-      <section id="tasks">
-        <%= render @tasks %>
-      </section>
+          <%= render partial: 'form', locals: {task: @task}%>
 
-        <%= render partial: 'form', locals: {task: @task}%>
+        <section id="delete">
+          <button type="button" class="btn btn-outline-secondary">
+          <%= link_to("Delete Completed", destroy_all_tasks_path, remote: true, method: :delete)%>
+          </button>
+        </section>
+      </div>
+    </div>
+  </main>
 
-      <section id="delete">
-        <button type="button" class="btn btn-outline-secondary">
-        <%= link_to("Delete Completed", destroy_all_tasks_path, remote: true, method: :delete)%>
-        </button>
-      </section>
+  <footer class="container-fluid">
+    <div class="row text-center">
+      <div class="col">
+        <a href="https://larrylawl.github.io/">© Larry Law</a>
 
-    </section>
-  </div>
-</main>
+      </div>
+    </div>
+  </footer>
+</body>
