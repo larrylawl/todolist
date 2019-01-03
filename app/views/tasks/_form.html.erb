@@ -1,9 +1,9 @@
-<section id="form" class="form-group">
+<section id="form">
 	<%= form_with model: task do |form| %>       
-	    <p>
-	      <%= form.text_area :title, placeholder: "Title", class:"form-control form-control-lg" %> <br>
-	      <%= form.text_area :tag_list, placeholder: "Multiple, Tags, Like, This", class:"form-control form-control-sm" %> <br>
-	      <%= form.text_area :details, placeholder: "Details", class:"form-control form-control-sm form-details" %>
-	    </p>
+	<section class="flex-container">
+	    <%= form.text_field :title, placeholder: "Title", class:"form-control" %> <br>
+	    <%= form.text_field :tag_list, placeholder: "Multiple, Tags, Like, This", class:"form-control" %> 
+	</section>
+	    <%= form.text_area :details, placeholder: "Details", class:"form-control form-control-sm form-details" %>
 	<% end %>
 </section>

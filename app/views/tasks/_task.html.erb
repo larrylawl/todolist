@@ -3,6 +3,7 @@
 	<!-- checkbox -->
 		<%= form_with scope: task, url: completed_task_path(task), method: :patch do |form|%>
 			<%= form.check_box :completed%>
+	<!-- Title: I want make this a box -->
 			<%= task.title %>
 
 	<!-- Labels -->

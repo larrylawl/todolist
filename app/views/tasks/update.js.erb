@@ -1,18 +1,11 @@
+edit_counter--;
+
 const task_id = <%= @task.id %>;
-
-// Update on task
-$(`#${task_id}`).replaceWith("<%= j render partial:'task', locals: {task: @task}%>");
+$(`form[action*=${task_id}]`).replaceWith("<%= j render partial:'task', locals: {task: @task}%>");
 $(`#${task_id} .details`).hide();
-
-// Checkbox
 submit_on_click(`#${task_id} input[type=checkbox]`);
 
-// Update on form
-$(`#form`).replaceWith("<%= j render partial: 'form', locals: {task: Task.new} %>");
-reset_form("#form");
-submit_on_enter_form("#form");
-
-// Delete button
-$(`#delete`).fadeIn(350);
-
-
+const form_pax = $(`.main_form`).length;
+if (edit_counter === 0) { 
+	$(`#delete`).fadeIn(350);
+}
