@@ -40,7 +40,6 @@ footer {
 .button{
 	font-weight: 250;
 	color: #606060;
-	float: right;
 	filter: brightness(90%);
 	margin-left: 0.2rem;
 	margin-right: 0.2rem;
@@ -73,6 +72,10 @@ footer {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+}
+
+.title {
+	flex-basis: 100rem;
 }
 
 @media (min-width: 0px) {
