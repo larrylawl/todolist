@@ -68,6 +68,10 @@ footer {
 	text-decoration: line-through;
 }
 
+.flex {
+	display: flex;
+}
+
 .flex-container {
 	display: flex;
 	flex-direction: row;
@@ -76,6 +80,7 @@ footer {
 
 .title {
 	flex-basis: 100rem;
+	border-bottom: 0.05rem solid #C0C0C0
 }
 
 @media (min-width: 0px) {

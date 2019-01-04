@@ -1,23 +1,28 @@
 <% status = get_status(task) %>
-<section id=<%=task.id%> class="<%=status%> d-flex flex-row flex-nowrap justify-content-center p-2" >
+<section id=<%=task.id%> class="<%=status%>">
+	<div class=" flex flex-row flex-nowrap justify-content-center mb-2">
 	<!-- checkbox -->
-			<div>
-		<%= form_with scope: task, url: completed_task_path(task), method: :patch do |form|%>
-			<%= form.check_box :completed%>
-			</div>
+		<div class="mr-2">
+	<%= form_with scope: task, url: completed_task_path(task), method: :patch do |form|%>
+		<%= form.check_box :completed%>
+		<% end %>
+		</div>
+
 	<!-- Title: I want make this a box -->		
-			<div onclick="quick_edit('<%=edit_task_path(task)%>')" class="title flex-shrink-5">
-			<%= task.title %>
-			</div>
+		<div onclick="quick_edit('<%=edit_task_path(task)%>')" class="title flex-shrink-5">
+		<%= task.title %>
+		</div>
 
 	<!-- Actions -->
-			<div>
-			<%= render partial: 'actions', locals: {task: task} %>
-			</div>
+		<div>
+		<%= render partial: 'actions', locals: {task: task} %>
+		</div>
+	</div>
 	<!-- Details -->
-			<div class= "details">
-				<%= task.details %>
-			</div>
-		<% end %>
+	<div class= "details">
+		<%= task.details %>
+	</div>
+
 </section>
+
 
