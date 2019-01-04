@@ -70,14 +70,18 @@ function get_details_selector(selector) {
 	return `${selector} [name*=details]`;
 }
 
-function quick_edit(task_url) {
-	$.get(task_url);
+function ajax_edit(input_url) {
+	$.get(input_url);
+}
+
+function ajax_delete(input_url){
+	$.ajax({method: "DELETE",
+			url: input_url});
 }
 
 $(document).on("turbolinks:load",function () {
 	$(`.details`).hide();
 	reset_form("#form");
-	// quick_edit(".title");
 	submit_on_enter_form("#form");
 	submit_on_click("input[type=checkbox]");
 })

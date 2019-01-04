@@ -2,7 +2,7 @@
 	<%= form_with model: task do |form| %>       
 	<section class="flex-container">
 	    <%= form.text_field :title, placeholder: "Title", class:"form-control" %> <br>
-	    <%= form.text_field :tag_list, placeholder: "Multiple, Tags, Like, This", class:"form-control" %> 
+	    <%= form.text_field :tag_list, placeholder: "Tags", class:"form-control" %> 
 	</section>
 	    <%= form.text_area :details, placeholder: "Details", class:"form-control form-control-sm form-details" %>
 	<% end %>

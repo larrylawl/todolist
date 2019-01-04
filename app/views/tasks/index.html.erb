@@ -12,9 +12,9 @@
 
           <%= render partial: 'form', locals: {task: @task}%>
 
-        <section id="delete" class="d-flex">
-          <button type="button" class="btn btn-outline-secondary flex-fill">
-          <%= link_to("Delete Completed", destroy_all_tasks_path, remote: true, method: :delete)%>
+        <section id="delete" class="flex">
+          <button type="button" class="btn btn-outline-secondary flex-fill" onclick="ajax_delete('<%= destroy_all_tasks_path %>')">
+            Delete Completed
           </button>
         </section>
       </div>
@@ -25,7 +25,8 @@
   <footer class="container-fluid">
     <div class="row text-center">
       <div class="col">
-        <a href="https://larrylawl.github.io/">© Larry Law</a>
+        <a href="https://github.com/larrylawl/todolist"><%= image_tag("github.png") %></a> <br>
+        Larry Law <br>
 
       </div>
     </div>
