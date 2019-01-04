@@ -3,7 +3,6 @@ class TasksController < ApplicationController
     @task = Task.new
     if params[:tag]
       @untagged = Task.tagged_with(params[:tag], :exclude => true)
-      byebug
       respond_js
     else
       @tasks = Task.all.order(:id)

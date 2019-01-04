@@ -1,5 +1,15 @@
-<%= link_to(image_tag("edit.png"), edit_task_path(task), remote: true, class: "button")%>
+<% task.tag_list.each do |t| %>
+<div class="button">
+	<%= link_to(t, tag_path(t), remote: true)+", " %>
+</div>
+<% end %>
+
+<div class="button">
 <% if task.details != "" %>
-	<%= link_to(image_tag("show.png"), task_path(task), remote: true, class: "button")%>
+	<%= link_to(image_tag("show.png"), task_path(task), remote: true)%>
 <% end %> 
-<%= raw(task.tag_list.map{|t| link_to("#{t}", tag_path(t), remote: true, class:"button")}.join(", ")) %>
+</div>
+<div class="button">
+<%= link_to(image_tag("edit.png"), edit_task_path(task), remote: true)%>
+</div>
+
