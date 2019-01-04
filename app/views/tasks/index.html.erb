@@ -12,13 +12,14 @@
 
           <%= render partial: 'form', locals: {task: @task}%>
 
-        <section id="delete">
-          <button type="button" class="btn btn-outline-secondary">
+        <section id="delete" class="d-flex">
+          <button type="button" class="btn btn-outline-secondary flex-fill">
           <%= link_to("Delete Completed", destroy_all_tasks_path, remote: true, method: :delete)%>
           </button>
         </section>
       </div>
     </div>
+
   </main>
 
   <footer class="container-fluid">
