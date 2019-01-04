@@ -4,6 +4,9 @@
 	    <%= form.text_field :title, placeholder: "Title", class:"form-control" %> <br>
 	    <%= form.text_field :tag_list, placeholder: "Tags", class:"form-control" %> 
 	</section>
-	    <%= form.text_area :details, placeholder: "Details", class:"form-control form-control-sm form-details" %>
+	<section class="flex-container">
+	    <%= form.text_area :details, placeholder: "Details", class:"form-control form-control-sm " %>
+	    <%= form.submit class:"form-control form-control-sm h-auto-md" %>
+	</section>   
 	<% end %>
 </section>

@@ -67,6 +67,10 @@ footer img:hover{
 	color: #808080;
 }
 
+.form-details{
+	flex-basis:15rem;
+}
+
 .btn-outline-secondary{
 	color: #495057;
 	border-color: #ced4da;
@@ -96,9 +100,13 @@ footer img:hover{
 	.jumbotron {
 		margin-bottom: 0rem;
 	}
+
+	.h-auto-md {
+		height: auto;
+	}
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
 	.jumbotron {
 		margin-bottom: 0rem;
 		padding-left: 6rem;
@@ -107,6 +115,11 @@ footer img:hover{
 	.LHS {
 		padding-left: 6rem;
 		padding-right: 6rem;
+	}
+
+	.h-auto-md {
+		height: auto;
+		display: none;
 	}
 }
 
