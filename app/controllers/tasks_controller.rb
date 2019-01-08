@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   def index
     @task = Task.new
     if params[:tag]
-      @untagged = Task.tagged_with(params[:tag], :exclude => true)
+      @untagged = Task.tagged_with(params[:tag])
       respond_js
     else
       @tasks = Task.all.order(:id)

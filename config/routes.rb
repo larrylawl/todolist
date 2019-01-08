@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   	patch 'completed', on: :member
   	delete 'destroy_all', on: :collection
   end
-  get "tags/:tag", to: "tasks#index", as: :tag
+  get '/tags/:id', to: 'tags#show', as: 'tag'
   root 'tasks#index'
 end
