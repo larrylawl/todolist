@@ -1,6 +1,6 @@
 const task_id = <%= @task.id %>;
 $(`#tasks`).append("<%= j render partial: 'task', locals: {task: @task} %>");
-$(`#${task_id}`).hide().fadeIn(500);
+$(`#${task_id}`).hide().fadeIn();
 $(`#${task_id} .details`).hide();
 reset_form("#form");
 submit_on_click(`#${task_id} input[type=checkbox]`);

@@ -1,4 +1,28 @@
+// if cur tag = prev tag, toggle back to index & resets values
+// if cur tag ≠ prev tag, toggle back to index before toggling
+// for cur tag
+
+if (tag_tracker !== "<%= @tag %>") {
+	var task_keys = Object.keys(tasks_tracker);
+	for (let i = 0; i < task_keys.length; i++) {
+		var task_key = task_keys[i];
+		var task_id = task_key;
+		$(`#${task_id}`).fadeToggle();
+	}
+	tasks_tracker = {}; 
+} else {}
+
 <% @untagged.each do |task| %> 
 	var task_id = <%= task.id %>;
 	$(`#${task_id}`).fadeToggle();
+	tasks_tracker[task_id] = task_id;
 <% end %>
+
+if (tag_tracker === "<%= @tag %>") { 
+	tag_tracker = "";
+	tasks_tracker = {}; 
+} else {
+	tag_tracker = "<%= @tag %>";
+}
+
+

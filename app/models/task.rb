@@ -11,9 +11,15 @@ class Task < ApplicationRecord
   	self.details ||= ""
   end
 
-  # Not!
-  def tagged_with(tag)
-    self.tags.find_by(name: tag)
+  # Return an array of tasks that's not tagged
+  def self.not_tagged_with(tag)
+    untagged = [];
+    Task.all.each do |task|
+      if !task.tags.exists?(name: tag)
+        untagged.push(task)
+      end
+    end
+    return untagged
   end
 
   def tag_list=(names)
