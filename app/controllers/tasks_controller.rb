@@ -47,6 +47,8 @@ class TasksController < ApplicationController
   def destroy_all
     @tasks = Task.where(completed: 1)
     @tasks.each do |task|
+      tags = task.tags
+      destroy_empty_tags(tags)
       task.destroy
     end
     respond_js
@@ -62,7 +64,15 @@ class TasksController < ApplicationController
   end
 
   private
-  	def tasks_params
+    def destroy_empty_tags(tags)
+      tags.each do |tag|
+        if tag.tasks.length == 1
+          tag.destroy
+        end
+      end
+    end
+
+    def tasks_params
   	  params.require(:task).permit(:title, :tag_list, :details)
   	end
 
