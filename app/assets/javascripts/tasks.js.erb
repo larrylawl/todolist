@@ -7,7 +7,6 @@ Abstracted out from 4 javascript files!
 
 var edit_counter = 0;
 var tag_tracker = "";
-var tag_counter = 0;
 var tasks_tracker = {};
 
 // String --> Undefined
@@ -80,10 +79,6 @@ function ajax_edit(input_url) {
 function ajax_delete(input_url){
 	$.ajax({method: "DELETE",
 			url: input_url});
-}
-
-function is_even(int) {
-	return int % 2 === 0 ? true : false
 }
 
 $(document).on("turbolinks:load",function () {
