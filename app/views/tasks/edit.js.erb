@@ -1,4 +1,6 @@
-// Edits task
+// Only fades in delete button when edit counter is zero (ie all tasks are out of edit mode) 
+// Circumvent bug of deleting checked task which is in edit mode.
+
 edit_counter++;
 
 const task_id = <%= @task.id %>;
