@@ -28,7 +28,6 @@ class Task < ApplicationRecord
     end
   end
 
-  # Returns a string
   def tag_list
     self.tags.map{|tag| tag.name}
   end
