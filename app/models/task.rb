@@ -2,7 +2,6 @@ class Task < ApplicationRecord
   # Wipe out taggings as they are no longer needed
   has_many :taggings, dependent: :destroy 
   has_many :tags, through: :taggings
-  has_many :subtasks, dependent: :destroy
   validates :title, presence: true, length: {minimum: 0}
   after_initialize :init
 
