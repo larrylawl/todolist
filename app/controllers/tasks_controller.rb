@@ -39,12 +39,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def destroy
-    @task = Task.find(params[:id])
-    @task.destroy 
-    respond_js
-  end
-
   def destroy_all
     @tasks = Task.where(completed: 1)
     @tasks.each do |task|
@@ -63,6 +57,12 @@ class TasksController < ApplicationController
       render "index"
     end
   end
+
+  # def destroy
+  #   @task = Task.find(params[:id])
+  #   @task.destroy 
+  #   respond_js
+  # end
 
   private
     def destroy_empty_tags(tags)
