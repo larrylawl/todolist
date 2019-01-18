@@ -5,11 +5,13 @@ Resets tag if there's a value
 Abstracted out from 4 javascript files!
 */
 
-var edit_counter = 0;
+// Global Variables
+var edit_counter = 0; 
 var tag_tracker = "";
 var tasks_tracker = {};
 
-// String --> Undefined
+// Focuses the title attribute and resets all the attributes (title, tag, and details) of the 
+// form indicated by the (CSS) selector.
 function reset_form(selector) {
 	const attributes = attribute_selectors(selector);
 	const title = get_title_selector(selector);
@@ -17,15 +19,15 @@ function reset_form(selector) {
 	reset_value(attributes);
 }
 
-// String --> Undefined
-// Array of strings --> Undefined
+// Resets the values of the elements in the array of (CSS) selectors.
 function reset_value(selectors) {
 	for (let i = 0; i < selectors.length; i++){
 		$(selectors[i]).val("");
 	}
 }
 
-// String --> Undefined
+// "Enter" key triggers submission of element indicated by (CSS) selector.
+// "Enter" + "Shift" keys do not trigger submission.
 function submit_on_enter(selector) {
 	$(selector).keypress(function(event) {
 		if(event.which == 13 && !event.shiftKey) {
@@ -34,8 +36,8 @@ function submit_on_enter(selector) {
 	});
 }
 
-
-//Submit
+// "Enter" key triggers submission of array of attributes of the form indicated by (CSS) selector.
+// "Enter" + "Shift" keys do not trigger submission.
 function submit_on_enter_form(selector) {
 	const attributes = attribute_selectors(selector);
 	for (let i = 0; i < attributes.length; i++){
@@ -43,8 +45,8 @@ function submit_on_enter_form(selector) {
 	}
 }
 
-// String --> Array
-// Returns array of attribute selectors in the order of title, tag, and details
+// Returns an array of attributes of the form indicated by (CSS) selector
+// in the order of title, tag, and details.
 function attribute_selectors(selector) {
 	const title = get_title_selector(selector);
 	const tag = get_tag_selector(selector);
@@ -52,37 +54,57 @@ function attribute_selectors(selector) {
 	return [title, tag, details];
 }
 
+// Click event triggers submission of element indicated by (CSS) selector.
 function submit_on_click(selector) {
 	$(`${selector}`).click(function(){
 		$(this).parent().trigger('submit.rails');
 	})
 }
 
+// Returns boolean if element indicated by (CSS) selector exists
 function element_exist(selector) {
 	return $(`${selector}`.length > 0);
 }
 
+// Returns (CSS) selector of the title of the form indicated by (CSS) selector
 function get_title_selector(selector) {
 	return `${selector} [name*=title]`;
 }
 
+// Returns (CSS) selector of the tag of the form indicated by (CSS) selector
 function get_tag_selector(selector) {
 	return `${selector} [name*=tag_list]`;
 }
 
+// Returns (CSS) selector of the details of the form indicated by (CSS) selector
 function get_details_selector(selector) {
 	return `${selector} [name*=details]`;
 }
 
+// Sends an AJAX GET request to input_url
 function ajax_edit(input_url) {
 	$.get(input_url);
 }
 
+// Sends an AJAX DELETE request to input_url
 function ajax_delete(input_url){
 	$.ajax({method: "DELETE",
 			url: input_url});
 }
 
+/*
+Sets up index, specifically the details, forms, and checkboxes.
+
+Hides the task's details.
+
+Focuses the title attribute and resets all the attributes (title, tag, and details) of the 
+form indicated by the (CSS) selector.
+
+"Enter" key triggers submission of array of attributes of the form indicated by (CSS) selector.
+"Enter" + "Shift" keys do not trigger submission.
+
+Click event triggers submission of element indicated by (CSS) selector.
+*/
 $(document).on("turbolinks:load",function () {
 	$(`.details`).hide();
 	reset_form("#form");
