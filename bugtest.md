@@ -4,9 +4,10 @@
 2. Destroy all
 	- Only shows when not in edit mode
 3. Tagging
-	- Multiple tags
+	- Toggle tags
+	- Toggle between tags
 4. Edit
-	- Edit on three boxes 
+	- Edit on all boxes 
 	- Edit -> Show (not hidden)
 	- Edit -> Tagging
 	- Edit -> Strike Through
