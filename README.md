@@ -5,7 +5,7 @@ Other features include: Checkboxes, Quick Edit, Quick Submit, Delete all
 completed, and a Charmander <br>
 My choice of tools are `Rails, HTML+CSS, jQuery, Bootstrap`. <br> <br>
 
-You can find the final product <a href= "https://young-reef-14225.herokuapp.com/">here </a> and my final report <a href = "./CVWO Final Submission">there</a>.<br>
+You can find the final product <a href= "https://young-reef-14225.herokuapp.com/">here </a> and my final report <a href = "./CVWO Final Submission.pdf">there</a>.<br>
 
 Enjoy! <br>
 <img src = "./app/assets/images/charmendermain.gif">
