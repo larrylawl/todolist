@@ -15,14 +15,6 @@ ActiveRecord::Schema.define(version: 2019_01_07_131111) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "subtasks", force: :cascade do |t|
-    t.string "title"
-    t.bigint "task_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["task_id"], name: "index_subtasks_on_task_id"
-  end
-
   create_table "taggings", force: :cascade do |t|
     t.bigint "tag_id"
     t.bigint "task_id"
@@ -46,5 +38,4 @@ ActiveRecord::Schema.define(version: 2019_01_07_131111) do
     t.integer "completed"
   end
 
-  add_foreign_key "subtasks", "tasks"
 end
